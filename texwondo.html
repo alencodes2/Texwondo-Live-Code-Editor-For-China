@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg" href="div-coding-icon.svg">
+    <title>德克萨斯武道 - 实时代码编辑器</title>
+    <script src="https://kit.fontawesome.com/711144b4b7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        
+        <h1><img src="div-coding-icon.svg" alt="">
+             德克萨斯武道</h1>
+             <div class="container">
+                <div class="left">
+                    <label><i class="fa-brands fa-html5"></i> 超文本标记语言</label>
+                    <textarea id="html-code" onkeyup="run()"></textarea>
+
+                    <label><i class="fa-brands fa-css3-alt"></i> 层叠样式表</label>
+                    <textarea id="css-code" onkeyup="run()"></textarea>
+                    <label><i class="fa-brands fa-js"></i> 爪哇脚本</label>
+                    <textarea id="js-code" onkeyup="run()"></textarea>
+                </div>
+                <div class="right">
+                    <label><i class="fa-solid fa-play"></i> 输出</label>
+                    <iframe id="output"></iframe>
+                </div>
+             </div>
+             <h3>a</h3>
+             <h3>a</h3>
+             <h1><img src="div-coding-icon.svg" alt="">
+             德克萨斯武道</h1>
+             <p><center>版权 <i class="fa-solid fa-code"></i> 版权所有  德克萨斯武道 2025</center></p>
+    </main>
+    <style>
+        body{
+            font-size: 1.4rem;
+            background: #fff;
+        }
+        h1 img{
+            width: 40px;
+        }
+        h1{
+            display: flex;
+            gap: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(41, 41, 41);
+        }
+        main{
+            width: 600px;
+            margin: 50px;
+        }
+        .left, .right{
+            flex-basis: 50%;
+            padding: 10px;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            padding: 20px;
+            display: flex;
+            gap: 80px;
+        }
+        textarea{
+            width: 100%;
+            height: 28%;
+            background: #1f1f1f;
+            color: #fff;
+            padding: 10px 20px;
+            border: 0;
+            outline: 0;
+            font-size: 18px;
+            border-radius: 20px;
+        }
+        .left{
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        iframe{
+            width: 100%;
+            height: 95%;
+            background: #fff;
+            border: 0;
+            outline: 0;
+        }
+        .right{
+            font-family: Arial, Helvetica, sans-serif;
+            width: 156ch;
+        }
+        label i{
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+        labe{
+            display: flex;
+            align-items: center;
+            background: #000;
+            height: 3px;
+        }
+        h3{
+            color: white;
+        }
+        p center{
+            font: caption;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }  
+        label i{
+            color: rgb(0, 195, 255);
+        }
+        .fa-play{
+            color: rgb(0, 255, 13);
+        }
+        </style>
+        <script>
+            function run(){
+                let htmlcode = document.getElementById("html-code").value;
+                let csscode = document.getElementById("css-code").value;
+                let jscode = document.getElementById("js-code").value;
+                let output = document.getElementById("output");
+
+                output.contentDocument.body.innerHTML = htmlcode + "<style>" + csscode + "</style>";
+                output.contentWindow.eval(jscode);
+            }
+        </script>
+</body>
+</html>
